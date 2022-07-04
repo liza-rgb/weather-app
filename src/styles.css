@@ -2,6 +2,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.row>* {
+    width: auto;
+}
+
 .city-panel a {
     display: inline;
     color: green;
@@ -13,12 +17,16 @@ body {
     color: green;
 }
 
-.row>* {
-    width: auto;
+
+.container {
+    margin: 40px auto;
+}
+
+.row-card {
+    justify-content: center;
 }
 
 .card {
-    margin: 40px auto 0px;
     padding: 10px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
@@ -34,12 +42,6 @@ body {
     font-size: 18px;
     margin-bottom: 0;
     color: grey;
-}
-
-.credentials {
-    margin: 8px auto;
-    width: 100%;
-    font-size: 12px;
 }
 
 .time {
@@ -110,4 +112,14 @@ i.weather {
 #search-input,
 .btn {
     border-radius: 0;
+}
+
+#credentials {
+    margin-top: 10px;
+    justify-content: center;
+}
+
+#credentials>* {
+    font-size: 12px;
+    padding: 0px;
 }

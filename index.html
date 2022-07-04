@@ -21,66 +21,68 @@
 
 <body>
     <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <div class="row city-panel">
-                    <a href="#" id="bucha">Bucha</a>
-                    <a href="#" id="hostomel">Hostomel</a>
-                    <a href="#" id="kharkiv">Kharkiv</a>
-                    <a href="#" id="mariupol">Mariupol</a>
-                </div>
+        <div class="row row-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row city-panel">
+                        <a href="#" id="bucha" class="inline">Bucha</a>
+                        <a href="#" id="hostomel" class="inline">Hostomel</a>
+                        <a href="#" id="kharkiv" class="inline">Kharkiv</a>
+                        <a href="#" id="mariupol" class="inline">Mariupol</a>
+                    </div>
 
-                <form action="#" id="search-form">
-                    <input type="text" name="city" id="search-input" class="form-control" autocomplete="off">
-                    <button class="btn btn-primary" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                    <button type="button" class="btn btn-success" id="current-button">Current</button>
-                </form>
+                    <form action="#" id="search-form">
+                        <input type="text" name="city" id="search-input" class="form-control" autocomplete="off">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <button type="button" class="btn btn-success" id="current-button">Current</button>
+                    </form>
 
-                <h5 class="card-title" id="city">Kyiv, Ukraine</h5>
-                <h6 class="time" id="current-time">TUE 22:31</h6>
-                <div class="temp-now">
-                    <span id="current-temp">20</span>
-                    <span class="temp-units">
-                        <a href="#" id="celsius-temp">°C</a>
-                        |
-                        <a href="#" id="fahrenheit-temp">°F</a>
-                    </span>
-                </div>
+                    <h5 class="card-title" id="city">Kyiv, Ukraine</h5>
+                    <h6 class="time" id="current-time">TUE 22:31</h6>
+                    <div class="temp-now">
+                        <span id="current-temp">20</span>
+                        <span class="temp-units">
+                            <a href="#" id="celsius-temp">°C</a>
+                            |
+                            <a href="#" id="fahrenheit-temp">°F</a>
+                        </span>
+                    </div>
 
-                <div class="row week-forecast">
-                    <div class="col-2">
-                        <div class="week-day">WED</div>
-                        <i class="fa-solid fa-cloud weather"></i>
-                        <div class="day-temp">17°C</div>
-                    </div>
-                    <div class="col-2">
-                        <div class="week-day">THU</div>
-                        <i class="fa-solid fa-sun weather"></i>
-                        <div class="day-temp">20°C</div>
-                    </div>
-                    <div class="col-2">
-                        <div class="week-day">FRI</div>
-                        <i class="fa-solid fa-sun weather"></i>
-                        <div class="day-temp">21°C</div>
-                    </div>
-                    <div class="col-2">
-                        <div class="week-day">SAT</div>
-                        <i class="fa-solid fa-cloud weather"></i>
-                        <div class="day-temp">19°C</div>
-                    </div>
-                    <div class="col-2">
-                        <div class="week-day">SUN</div>
-                        <i class="fa-solid fa-sun weather"></i>
-                        <div class="day-temp">18°C</div>
+                    <div class="row week-forecast">
+                        <div class="col-2">
+                            <div class="week-day">WED</div>
+                            <i class="fa-solid fa-cloud weather"></i>
+                            <div class="day-temp">17°C</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="week-day">THU</div>
+                            <i class="fa-solid fa-sun weather"></i>
+                            <div class="day-temp">20°C</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="week-day">FRI</div>
+                            <i class="fa-solid fa-sun weather"></i>
+                            <div class="day-temp">21°C</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="week-day">SAT</div>
+                            <i class="fa-solid fa-cloud weather"></i>
+                            <div class="day-temp">19°C</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="week-day">SUN</div>
+                            <i class="fa-solid fa-sun weather"></i>
+                            <div class="day-temp">18°C</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row credentials">
+        <div class="row" id="credentials">
             <a href="https://github.com/liza-rgb/weather-app" target="_blank">Open-source code</a>
-            <span>by Liza Stoliarchuk</span>
+            <span>&nbsp;by Liza Stoliarchuk</span>
         </div>
     </div>
 
