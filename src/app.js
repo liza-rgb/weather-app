@@ -11,8 +11,6 @@ let timeElement = document.querySelector("#current-time");
 timeElement.innerHTML = `${days[day]} ${hour}:${min}`;
 
 
-
-
 // API info
 let apiKey = "d0acf7f4fbfe6d9b905827e17faae31d";
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
@@ -20,11 +18,17 @@ let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
 
 // search for a temperature in specific city
 function showTemp(response) {
-    let temp = Math.round(response.data.main.temp);
     let tempElement = document.querySelector("#current-temp");
-    tempElement.innerHTML = temp;
+    tempElement.innerHTML = Math.round(response.data.main.temp);
     let city = document.querySelector("#city");
-    city.innerHTML = response.data.name;
+    city.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+    let humidity = document.querySelector("#humidity");
+    humidity.innerHTML = `${response.data.main.humidity}%`;
+    let windSpeed = document.querySelector("#wind-speed");
+    windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
+    let cloudiness = document.querySelector("#cloudiness");
+    cloudiness.innerHTML = `${response.data.clouds.all}%`
+    console.log(response);
 }
 
 function searchCity(event) {
