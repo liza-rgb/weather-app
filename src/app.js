@@ -23,7 +23,6 @@ function showTemp(response) {
     let temp = Math.round(response.data.main.temp);
     let tempElement = document.querySelector("#current-temp");
     tempElement.innerHTML = temp;
-    console.log(response);
     let city = document.querySelector("#city");
     city.innerHTML = response.data.name;
 }
@@ -41,7 +40,6 @@ function searchCity(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
-
 
 
 
@@ -70,6 +68,3 @@ let buttonCelsius = document.querySelector("#celsius-temp");
 buttonCelsius.addEventListener("click", tempCelcius);
 let buttonFahrenheit = document.querySelector("#fahrenheit-temp");
 buttonFahrenheit.addEventListener("click", tempFahrenheit);
-
-
-

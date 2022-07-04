@@ -18,7 +18,7 @@ body {
 }
 
 .card {
-    margin: 40px auto;
+    margin: 40px auto 0px;
     padding: 10px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
@@ -34,6 +34,12 @@ body {
     font-size: 18px;
     margin-bottom: 0;
     color: grey;
+}
+
+.credentials {
+    margin: 8px auto;
+    width: 100%;
+    font-size: 12px;
 }
 
 .time {
