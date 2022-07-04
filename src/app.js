@@ -26,20 +26,23 @@ let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
 // search for a temperature in specific city
 function showWeather(response) {
     let tempElement = document.querySelector("#current-temp");
-    tempElement.innerHTML = Math.round(response.data.main.temp);
-    let city = document.querySelector("#city");
-    city.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-    let cloudiness = document.querySelector("#cloudiness");
-    cloudiness.innerHTML = `${response.data.clouds.all}%`;
-    let humidity = document.querySelector("#humidity");
-    humidity.innerHTML = `${response.data.main.humidity}%`;
-    let windSpeed = document.querySelector("#wind-speed");
-    windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
+    let cityElement = document.querySelector("#city");
+    let cloudinessElement = document.querySelector("#cloudiness");
+    let humidityElement = document.querySelector("#humidity");
+    let windSpeedElement = document.querySelector("#wind-speed");
     let timeElement = document.querySelector("#current-time");
+    let weatherElement = document.querySelector("#weather-description");
+    let iconElement = document.querySelector("#weather-icon");
+
+    tempElement.innerHTML = Math.round(response.data.main.temp);
+    cityElement.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+    cloudinessElement.innerHTML = `${response.data.clouds.all}%`;
+    humidityElement.innerHTML = `${response.data.main.humidity}%`;
+    windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
     timeElement.innerHTML = formatDate(response.data.dt * 1000);
-    let weather = document.querySelector("#weather-description");
-    weather.innerHTML = response.data.weather[0].description;
-    console.log(response);
+    weatherElement.innerHTML = response.data.weather[0].description;
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(event) {

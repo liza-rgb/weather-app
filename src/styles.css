@@ -71,11 +71,7 @@ li>span {
     font-size: 60px;
     font-weight: 600;
     display: flex;
-}
-
-.temp-now .fa-solid {
-    font-size: 45px;
-    align-self: center;
+    padding-left: 0px;
 }
 
 .week-forecast div {
@@ -155,4 +151,10 @@ i.weather {
 
 #weather-description::first-letter {
     text-transform: capitalize;
+}
+
+img#weather-icon {
+    width: 70px;
+    height: 70px;
+    align-self: center;
 }
