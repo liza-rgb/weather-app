@@ -1,14 +1,21 @@
 // retrieving current time info
-let currentTime = new Date();
+function formatDate(timestamp) {
+    let date = new Date(timestamp);
 
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let day = currentTime.getDay();
-let hour = currentTime.getHours();
-let min = currentTime.getMinutes();
+    let hours = date.getHours();
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
 
-// displaying current time on tne page
-let timeElement = document.querySelector("#current-time");
-timeElement.innerHTML = `${days[day]} ${hour}:${min}`;
+    let mins = date.getMinutes();
+    if (mins < 10) {
+        mins = `0${mins}`;
+    }
+
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let day = date.getDay();
+    return `${days[day]} ${hours}:${mins}`
+}
 
 
 // API info
@@ -17,18 +24,19 @@ let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
 
 
 // search for a temperature in specific city
-function showTemp(response) {
+function showWeather(response) {
     let tempElement = document.querySelector("#current-temp");
     tempElement.innerHTML = Math.round(response.data.main.temp);
     let city = document.querySelector("#city");
     city.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+    let cloudiness = document.querySelector("#cloudiness");
+    cloudiness.innerHTML = `${response.data.clouds.all}%`;
     let humidity = document.querySelector("#humidity");
     humidity.innerHTML = `${response.data.main.humidity}%`;
     let windSpeed = document.querySelector("#wind-speed");
     windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
-    let cloudiness = document.querySelector("#cloudiness");
-    cloudiness.innerHTML = `${response.data.clouds.all}%`
-    console.log(response);
+    let timeElement = document.querySelector("#current-time");
+    timeElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function searchCity(event) {
@@ -36,7 +44,7 @@ function searchCity(event) {
     let searchInput = document.querySelector("#search-input");
     if (searchInput.value) {
         axios.get(`${apiUrl}q=${searchInput.value}&units=metric&appid=${apiKey}`).
-            then(showTemp).catch(() => { alert("We can't find this city. Please try again!") });
+            then(showWeather).catch(() => { alert("We can't find this city. Please try again!") });
     } else {
         alert("Please write the name of the city...");
     }
@@ -49,7 +57,7 @@ searchForm.addEventListener("submit", searchCity);
 
 // search for a temperature in current location
 function findTemp(position) {
-    axios.get(`${apiUrl}lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`).then(showTemp);
+    axios.get(`${apiUrl}lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`).then(showWeather);
 }
 
 let currentButton = document.querySelector("#current-button");

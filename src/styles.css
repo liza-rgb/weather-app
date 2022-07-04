@@ -73,6 +73,11 @@ li>span {
     display: flex;
 }
 
+.temp-now .fa-solid {
+    font-size: 45px;
+    align-self: center;
+}
+
 .week-forecast div {
     text-align: center;
 }
@@ -117,6 +122,11 @@ i.weather {
 
 .temp-units a:hover {
     color: green;
+}
+
+.weather-row {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #search-form {
