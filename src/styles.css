@@ -1,0 +1,107 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.city-panel a {
+    display: inline;
+    color: green;
+    text-decoration: none;
+}
+
+.city-panel a:hover {
+    text-decoration: underline;
+    color: green;
+}
+
+.row>* {
+    width: auto;
+}
+
+.card {
+    margin: 40px auto;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 500px;
+}
+
+.city-panel {
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 0;
+    color: grey;
+}
+
+.time {
+    font-size: 15px;
+    color: grey;
+    margin-bottom: 0;
+    font-weight: 200;
+}
+
+.temp-now {
+    font-size: 50px;
+    font-size: 60px;
+    font-weight: 600;
+    display: flex;
+}
+
+.week-forecast div {
+    text-align: center;
+}
+
+.week-forecast {
+    display: flex;
+    justify-content: space-between;
+}
+
+.week-day {
+    font-size: 15px;
+}
+
+.day-temp {
+    font-weight: 200;
+    font-size: 12px;
+}
+
+i.weather {
+    font-size: 40px;
+    padding: 5px;
+}
+
+.fa-sun {
+    color: #ffd323;
+}
+
+.fa-cloud {
+    color: rgb(193, 193, 193);
+}
+
+.temp-units {
+    display: flex;
+    font-size: 30px;
+    align-self: flex-start;
+}
+
+.temp-units a {
+    text-decoration: none;
+    color: #000;
+}
+
+.temp-units a:hover {
+    color: green;
+}
+
+#search-form {
+    margin-bottom: 14px;
+    display: flex;
+}
+
+#search-input,
+.btn {
+    border-radius: 0;
+}
