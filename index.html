@@ -32,11 +32,15 @@
                     </div>
 
                     <form action="#" id="search-form">
-                        <input type="text" name="city" id="search-input" class="form-control" autocomplete="off">
-                        <button class="btn btn-primary" type="submit">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <button type="button" class="btn btn-success" id="current-button">Current</button>
+                        <div class="search-form-control">
+                            <input type="text" name="city" id="search-input" class="form-control" autocomplete="off"
+                                placeholder="type a city ...">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <button type="button" class="btn btn-success" id="current-button">Current</button>
+                        </div>
+                        <div class="invalid-city invisible"> We can't find this city. Please try again.</div>
                     </form>
 
                     <h5 class="card-title" id="city">Kyiv, UA</h5>

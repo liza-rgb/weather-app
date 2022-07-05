@@ -125,9 +125,17 @@ i.weather {
     margin-bottom: 10px;
 }
 
+.search-form-control {
+    display: flex;
+}
+
+.invalid-city {
+    color: rgb(196, 14, 14);
+    font-size: 13px;
+}
+
 #search-form {
     margin-bottom: 14px;
-    display: flex;
 }
 
 #search-input,
