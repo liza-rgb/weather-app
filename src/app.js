@@ -28,7 +28,9 @@ function showWeather(response) {
     let weatherElement = document.querySelector("#weather-description");
     let iconElement = document.querySelector("#weather-icon");
 
-    tempElement.innerHTML = Math.round(response.data.main.temp);
+    celciusTemp = response.data.main.temp;
+
+    tempElement.innerHTML = Math.round(celciusTemp);
     cityElement.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
     cloudinessElement.innerHTML = `${response.data.clouds.all}%`;
     humidityElement.innerHTML = `${response.data.main.humidity}%`;
@@ -77,40 +79,42 @@ function findTemp(position) {
 }
 
 // convert units of temp to Celsius
-function tempCelcius(event) {
+function showTempCelcius(event) {
     event.preventDefault();
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
     let currentTempElement = document.querySelector("#current-temp");
-    currentTempElement.innerHTML = "17";
+    currentTempElement.innerHTML = Math.round(celciusTemp);
 }
 
-// convert units of temp to Fahrenheit
-function tempFahrenheit(event) {
+// convert units of temp form Celcius to Fahrenheit
+function showTempFahrenheit(event) {
     event.preventDefault();
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
     let currentTempElement = document.querySelector("#current-temp");
-    currentTempElement.innerHTML = "60";
+    let fahrenheit = (celciusTemp * 9) / 5 + 32;
+    currentTempElement.innerHTML = Math.round(fahrenheit);
 }
 
 // weather API info
 let apiKey = "d0acf7f4fbfe6d9b905827e17faae31d";
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
 
-// search Engine
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-let searchInput = document.querySelector("#search-input");
-searchInput.addEventListener("keydown", clearAlert);
-
 // weather at current position
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", () => { navigator.geolocation.getCurrentPosition(findTemp); clearAlert() });
 
 // units conversion
-let celsiusButton = document.querySelector("#celsius-temp");
-celsiusButton.addEventListener("click", tempCelcius);
-let fahrenheitButton = document.querySelector("#fahrenheit-temp");
-fahrenheitButton.addEventListener("click", tempFahrenheit);
+let celciusTemp = null;
+let celsiusLink = document.querySelector("#celsius-temp");
+celsiusLink.addEventListener("click", showTempCelcius);
+let fahrenheitLink = document.querySelector("#fahrenheit-temp");
+fahrenheitLink.addEventListener("click", showTempFahrenheit);
 
 // upper tab controls
+let kyivElement = document.querySelector("#kyiv");
+kyivElement.addEventListener("click", () => { searchCity("kyiv") });
 let buchaElement = document.querySelector("#bucha");
 buchaElement.addEventListener("click", () => { searchCity("bucha") });
 let hostomelElement = document.querySelector("#hostomel");
@@ -119,3 +123,9 @@ let kharkivElement = document.querySelector("#kharkiv");
 kharkivElement.addEventListener("click", () => { searchCity("kharkiv") });
 let mariupolElement = document.querySelector("#mariupol");
 mariupolElement.addEventListener("click", () => { searchCity("mariupol") });
+
+// search Engine
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+let searchInput = document.querySelector("#search-input");
+searchInput.addEventListener("keydown", clearAlert);

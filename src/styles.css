@@ -74,6 +74,12 @@ li>span {
     padding-left: 0px;
 }
 
+.temp-now .active {
+    color: #000;
+    cursor: default;
+    font-weight: 600;
+}
+
 .week-forecast div {
     text-align: center;
 }
@@ -109,15 +115,17 @@ i.weather {
     display: flex;
     font-size: 30px;
     align-self: flex-start;
+    color: grey;
+    font-weight: 400;
 }
 
 .temp-units a {
     text-decoration: none;
-    color: #000;
+    color: grey;
 }
 
-.temp-units a:hover {
-    color: green;
+.temp-units a:not(.active):hover {
+    text-shadow: 1px 1px grey;
 }
 
 .weather-row {
