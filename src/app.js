@@ -55,15 +55,20 @@ function clearAlert() {
 }
 
 // make an api call to search for a city
-function searchCity(event) {
-    event.preventDefault();
-    let searchInput = document.querySelector("#search-input");
-    if (searchInput.value) {
-        axios.get(`${apiUrl}q=${searchInput.value}&units=metric&appid=${apiKey}`).
+function searchCity(city) {
+    if (city) {
+        axios.get(`${apiUrl}q=${city}&units=metric&appid=${apiKey}`).
             then(showWeather).catch(alertWrongCity);
     } else {
         alert("Please write the name of the city...");
     }
+}
+
+// make an api call to search for a city
+function handleSubmit(event) {
+    event.preventDefault();
+    let searchInput = document.querySelector("#search-input");
+    searchCity(searchInput.value);
 }
 
 // search for a temperature in current location
@@ -91,7 +96,7 @@ let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
 
 // search Engine
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", searchCity);
+searchForm.addEventListener("submit", handleSubmit);
 let searchInput = document.querySelector("#search-input");
 searchInput.addEventListener("keydown", clearAlert);
 
@@ -104,3 +109,13 @@ let celsiusButton = document.querySelector("#celsius-temp");
 celsiusButton.addEventListener("click", tempCelcius);
 let fahrenheitButton = document.querySelector("#fahrenheit-temp");
 fahrenheitButton.addEventListener("click", tempFahrenheit);
+
+// upper tab controls
+let buchaElement = document.querySelector("#bucha");
+buchaElement.addEventListener("click", () => { searchCity("bucha") });
+let hostomelElement = document.querySelector("#hostomel");
+hostomelElement.addEventListener("click", () => { searchCity("hostomel") });
+let kharkivElement = document.querySelector("#kharkiv");
+kharkivElement.addEventListener("click", () => { searchCity("kharkiv") });
+let mariupolElement = document.querySelector("#mariupol");
+mariupolElement.addEventListener("click", () => { searchCity("mariupol") });
