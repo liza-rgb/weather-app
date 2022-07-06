@@ -17,6 +17,25 @@ function formatDate(timestamp) {
     return `${days[day]} ${hours}:${mins}`
 }
 
+// convert units of temp to Celsius
+function showTempCelcius(event) {
+    event.preventDefault();
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    let currentTempElement = document.querySelector("#current-temp");
+    currentTempElement.innerHTML = Math.round(celciusTemp);
+}
+
+// convert units of temp form Celcius to Fahrenheit
+function showTempFahrenheit(event) {
+    event.preventDefault();
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let currentTempElement = document.querySelector("#current-temp");
+    let fahrenheit = (celciusTemp * 9) / 5 + 32;
+    currentTempElement.innerHTML = Math.round(fahrenheit);
+}
+
 // search for a temperature in specific city
 function showWeather(response) {
     let tempElement = document.querySelector("#current-temp");
@@ -29,8 +48,10 @@ function showWeather(response) {
     let iconElement = document.querySelector("#weather-icon");
 
     celciusTemp = response.data.main.temp;
-
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
     tempElement.innerHTML = Math.round(celciusTemp);
+
     cityElement.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
     cloudinessElement.innerHTML = `${response.data.clouds.all}%`;
     humidityElement.innerHTML = `${response.data.main.humidity}%`;
@@ -76,25 +97,6 @@ function handleSubmit(event) {
 // search for a temperature in current location
 function findTemp(position) {
     axios.get(`${apiUrl}lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`).then(showWeather);
-}
-
-// convert units of temp to Celsius
-function showTempCelcius(event) {
-    event.preventDefault();
-    celsiusLink.classList.add("active");
-    fahrenheitLink.classList.remove("active");
-    let currentTempElement = document.querySelector("#current-temp");
-    currentTempElement.innerHTML = Math.round(celciusTemp);
-}
-
-// convert units of temp form Celcius to Fahrenheit
-function showTempFahrenheit(event) {
-    event.preventDefault();
-    celsiusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
-    let currentTempElement = document.querySelector("#current-temp");
-    let fahrenheit = (celciusTemp * 9) / 5 + 32;
-    currentTempElement.innerHTML = Math.round(fahrenheit);
 }
 
 // weather API info
