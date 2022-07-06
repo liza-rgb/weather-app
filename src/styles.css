@@ -80,22 +80,36 @@ li>span {
     font-weight: 600;
 }
 
-.week-forecast div {
+.weather-forecast div {
     text-align: center;
 }
 
-.week-forecast {
+.weather-forecast {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
 }
 
-.week-day {
-    font-size: 15px;
+.weather-forecast img {
+    width: 50px;
 }
 
-.day-temp {
+.weather-forecast-date {
+    font-size: 13px;
+}
+
+.weather-forecast-temp {
     font-weight: 200;
     font-size: 12px;
+}
+
+.weather-forecast-temp {
+    font-weight: 400;
+}
+
+.weather-forecast-temp-min {
+    color: rgb(149, 148, 148);
 }
 
 i.weather {
