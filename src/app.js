@@ -25,24 +25,45 @@ function formatDay(timestamp) {
     return days[day];
 }
 
+// convers Celcius temp to Fahrenheir
+function celciusToFahrenheit(temp) {
+    return Math.round((temp * 9) / 5 + 32);
+}
 
-// convert units of temp to Celsius
+// show temp in Celcius
 function showTempCelcius(event) {
     event.preventDefault();
     celsiusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
     let currentTempElement = document.querySelector("#current-temp");
     currentTempElement.innerHTML = Math.round(celciusTemp);
+
+    celciusForecastMax.forEach((temp, index) => {
+        let tempElement = document.querySelector(`#temp-max-${index}`);
+        tempElement.innerHTML = `${temp}°`;
+    });
+    celciusForecastMin.forEach((temp, index) => {
+        let tempElement = document.querySelector(`#temp-min-${index}`);
+        tempElement.innerHTML = `${temp}°`;
+    });
 }
 
-// convert units of temp form Celcius to Fahrenheit
+// convert units of temp from Celcius to Fahrenheit
 function showTempFahrenheit(event) {
     event.preventDefault();
     celsiusLink.classList.remove("active");
     fahrenheitLink.classList.add("active");
     let currentTempElement = document.querySelector("#current-temp");
-    let fahrenheit = (celciusTemp * 9) / 5 + 32;
-    currentTempElement.innerHTML = Math.round(fahrenheit);
+    currentTempElement.innerHTML = celciusToFahrenheit(celciusTemp);
+
+    celciusForecastMax.forEach((temp, index) => {
+        let tempElement = document.querySelector(`#temp-max-${index}`);
+        tempElement.innerHTML = `${celciusToFahrenheit(temp)}°`;
+    });
+    celciusForecastMin.forEach((temp, index) => {
+        let tempElement = document.querySelector(`#temp-min-${index}`);
+        tempElement.innerHTML = `${celciusToFahrenheit(temp)}°`;
+    });
 }
 
 // display weather predictions for 5 days and current day
@@ -54,16 +75,22 @@ function showForecast(response) {
     forecast.forEach(function (forecastDay, index) {
         if (index < 6) {
             forecastHTML += `
-        <div class="col-2">
-            <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png">
-            <div class="weather-forecast-temp">
-                <span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span>
-                <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
-            </div>
-        </div>`;
+            <div class="col-2">
+                <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+                <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png">
+                <div class="weather-forecast-temp">
+                    <span class="weather-forecast-temp-max" id="temp-max-${index}">${Math.round(forecastDay.temp.max)}°</span>
+                    <span class="weather-forecast-temp-min" id="temp-min-${index}">${Math.round(forecastDay.temp.min)}°</span>
+                </div>
+            </div>`;
+            celciusForecastMax[index] = Math.round(forecastDay.temp.max);
+            celciusForecastMin[index] = Math.round(forecastDay.temp.min);
         }
     });
+
+    console.log(celciusForecastMax);
+    console.log(celciusForecastMin);
+
     forecastHTML += `</div>`;
     forecastElement.innerHTML = forecastHTML;
 }
@@ -149,6 +176,8 @@ currentButton.addEventListener("click", () => { navigator.geolocation.getCurrent
 
 // units conversion
 let celciusTemp = null;
+let celciusForecastMax = [];
+let celciusForecastMin = [];
 let celsiusLink = document.querySelector("#celsius-temp");
 celsiusLink.addEventListener("click", showTempCelcius);
 let fahrenheitLink = document.querySelector("#fahrenheit-temp");
