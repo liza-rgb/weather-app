@@ -201,11 +201,7 @@ searchForm.addEventListener("submit", handleSubmit);
 let searchInput = document.querySelector("#search-input");
 searchInput.addEventListener("keydown", clearAlert);
 
-
-
-
-
-
+// switch between light and dark
 let switchThemeButton = document.querySelector("#switch-theme-button");
 const useDark = window.matchMedia("(prefers-color-scheme: dark)");
 function toggleDarkMode(state) {
@@ -214,3 +210,6 @@ function toggleDarkMode(state) {
 switchThemeButton.addEventListener("click", () => {
     document.documentElement.classList.toggle("dark-mode");
 });
+
+// initial setup
+searchCity("kyiv");
