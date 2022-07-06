@@ -79,6 +79,7 @@ li>span {
     border-radius: 15px;
     width: 600px;
     padding: 10px;
+    margin-top: 25px;
 }
 
 .city-panel {
@@ -223,16 +224,6 @@ img#weather-icon {
     border-color: var(--color-border);
     color: var(--color-font-default);
 }
-
-/* #switch-theme-button {
-    width: 150px;
-    text-align: center;
-    margin: 40px auto;
-    background-color: var(--color-foreground);
-    border: 1px solid var(--color-border);
-    border-radius: 5px;
-    color: var(--color-accent-2)
-} */
 
 #switch-theme-button {
     width: 150px;
