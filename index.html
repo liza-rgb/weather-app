@@ -24,12 +24,14 @@
         <div class="row row-card">
             <div class="card">
                 <div class="card-body">
-                    <div class="row city-panel">
-                        <a href="#" id="kyiv" class="inline">Kyiv</a>
-                        <a href="#" id="bucha" class="inline">Bucha</a>
-                        <a href="#" id="hostomel" class="inline">Hostomel</a>
-                        <a href="#" id="kharkiv" class="inline">Kharkiv</a>
-                        <a href="#" id="mariupol" class="inline">Mariupol</a>
+                    <div class="city-panel">
+                        <div class="row">
+                            <a href="#" id="kyiv">Kyiv</a>
+                            <a href="#" id="bucha">Bucha</a>
+                            <a href="#" id="hostomel">Hostomel</a>
+                            <a href="#" id="kharkiv">Kharkiv</a>
+                            <a href="#" id="mariupol">Mariupol</a>
+                        </div>
                     </div>
 
                     <form action="#" id="search-form">
@@ -47,36 +49,27 @@
                     <h5 class="card-title" id="city">Atlantis, OE</h5>
                     <h6 class="time">Last updated: <span id="current-time">Monday, 00:00</span></h6>
                     <h6 id="weather-description">Clear water</h6>
-                    <div class="row weather-row">
-                        <div class="temp-now">
-                            <img id="weather-icon" src="http://openweathermap.org/img/wn/01d@2x.png">
-                            <span id="current-temp">0</span>
-                            <span class="temp-units">
-                                <a href="#" id="celsius-temp" class="active">°C</a>
-                                |
-                                <a href="#" id="fahrenheit-temp">°F</a>
-                            </span>
-                        </div>
-                        <div class="weather-properties">
-                            <ul>
-                                <li>Cloudiness: <span id="cloudiness">0%</span></li>
-                                <li>Humidity: <span id="humidity">100%</span></li>
-                                <li>Wind: <span id="wind-speed">0 km/h</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="weather-forecast">
-                            <div class="col-2">
-                                <div class="weather-forecast-date">Mon</div>
-                                <img src="http://openweathermap.org/img/wn/50d@2x.png">
-                                <div class="weather-forecast-temp">
-                                    <span class="weather-forecast-temp-max">20°</span>
-                                    <span class="weather-forecast-temp-min">15°</span>
-                                </div>
+                    <div class="weather-row">
+                        <div class="row">
+                            <div class="temp-now">
+                                <img id="weather-icon" src="http://openweathermap.org/img/wn/01d@2x.png">
+                                <span id="current-temp">0</span>
+                                <span class="temp-units">
+                                    <a href="#" id="celsius-temp" class="active">°C</a>
+                                    |
+                                    <a href="#" id="fahrenheit-temp">°F</a>
+                                </span>
+                            </div>
+                            <div class="weather-properties">
+                                <ul>
+                                    <li>Cloudiness: <span id="cloudiness">0%</span></li>
+                                    <li>Humidity: <span id="humidity">100%</span></li>
+                                    <li>Wind: <span id="wind-speed">0 km/h</span></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                    <div class="weather-forecast" id="forecast"></div>
                 </div>
             </div>
         </div>

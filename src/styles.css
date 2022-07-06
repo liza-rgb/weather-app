@@ -82,13 +82,14 @@ li>span {
 
 .weather-forecast div {
     text-align: center;
+    margin-top: 5px;
 }
 
-.weather-forecast {
+.weather-forecast .row {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 5px;
+    margin-left: 0px;
 }
 
 .weather-forecast img {
@@ -97,6 +98,7 @@ li>span {
 
 .weather-forecast-date {
     font-size: 13px;
+    color: gray;
 }
 
 .weather-forecast-temp {
