@@ -200,3 +200,17 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 let searchInput = document.querySelector("#search-input");
 searchInput.addEventListener("keydown", clearAlert);
+
+
+
+
+
+
+let switchThemeButton = document.querySelector("#switch-theme-button");
+const useDark = window.matchMedia("(prefers-color-scheme: dark)");
+function toggleDarkMode(state) {
+    document.documentElement.classList.toggle("dark-mode", state);
+}
+switchThemeButton.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark-mode");
+});
