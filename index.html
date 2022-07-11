@@ -21,21 +21,23 @@
 
 <body>
     <div class="container">
-        <div class="row row-card">
+        <div class="row justify-content-center">
             <div class="card">
                 <div class="card-body">
                     <div class="city-panel">
                         <div class="row">
-                            <a href="#" id="kyiv">Kyiv</a>
-                            <a href="#" id="bucha">Bucha</a>
-                            <a href="#" id="hostomel">Hostomel</a>
-                            <a href="#" id="kharkiv">Kharkiv</a>
-                            <a href="#" id="mariupol">Mariupol</a>
+                            <div class="d-flex">
+                                <a href="#" id="kyiv">Kyiv</a>
+                                <a href="#" id="bucha">Bucha</a>
+                                <a href="#" id="hostomel">Hostomel</a>
+                                <a href="#" id="kharkiv">Kharkiv</a>
+                                <a href="#" id="mariupol">Mariupol</a>
+                            </div>
                         </div>
                     </div>
 
                     <form action="#" id="search-form">
-                        <div class="search-form-control">
+                        <div class="search-form-control d-inline-flex w-100">
                             <input type="text" name="city" id="search-input" class="form-control" autocomplete="off"
                                 placeholder="type a city ...">
                             <button class="btn btn-primary" type="submit" id="search-button">
@@ -51,33 +53,31 @@
                     <h6 id="weather-description"></h6>
                     <div class="weather-row">
                         <div class="row">
-                            <div class="temp-now">
+                            <div class="col-6 temp-now ps-0 d-flex">
                                 <img id="weather-icon" src="">
-                                <span id="current-temp"></span>
-                                <span class="temp-units">
+                                <div id="current-temp"></div>
+                                <div class="temp-units d-flex">
                                     <a href="#" id="celsius-temp" class="active">°C</a>
                                     |
                                     <a href="#" id="fahrenheit-temp">°F</a>
-                                </span>
-
+                                </div>
                             </div>
-                            <div class="weather-properties">
-                                <ul>
+                            <div class="col-6 weather-properties d-flex align-self-center">
+                                <ul class="m-0">
                                     <li>Cloudiness: <span id="cloudiness"></span></li>
                                     <li>Humidity: <span id="humidity"></span></li>
                                     <li>Wind: <span id="wind-speed"></span></li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
-                    <div class="weather-forecast" id="forecast"></div>
+                    <div class="weather-forecast ps-0" id="forecast"></div>
                 </div>
             </div>
         </div>
-        <div class="row" id="credentials">
-            <a href="https://github.com/liza-rgb/weather-app" target="_blank">Open-source code</a>
-            <span>&nbsp;by Liza Stoliarchuk</span>
+        <div class="row justify-content-center" id="credentials">
+            <a href="https://github.com/liza-rgb/weather-app" target="_blank" class="w-auto">Open-source code</a>
+            <span class="w-auto">&nbsp;by Liza Stoliarchuk</span>
         </div>
         <div class="row">
             <button type="button" id="switch-theme-button">LIGHT / DARK</button>
