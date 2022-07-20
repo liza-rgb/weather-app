@@ -218,3 +218,38 @@ img#weather-icon {
     box-shadow: 0 0.5em 0.5em -0.4em var(--color-accent-2);
     transform: translateY(-0.25em);
 }
+
+
+@media (max-width: 576px) {
+    .card {
+        width: 100%;
+    }
+
+    .city-panel {
+        font-size: 14px;
+    }
+
+    .weather-row {
+        margin-bottom: 20px;
+    }
+
+    .temp-units {
+        font-size: 25px;
+    }
+
+    .weather-properties ul {
+        font-size: 12px;
+    }
+
+    .weather-forecast img {
+        width: 40px;
+    }
+
+    #search-form * {
+        font-size: 14px;
+    }
+
+    #current-temp {
+        font-size: 50px;
+    }
+}
