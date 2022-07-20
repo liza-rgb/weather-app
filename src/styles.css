@@ -26,6 +26,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--color-font-default);
     background: var(--color-background);
+    margin-bottom: 400px;
 }
 
 ul {
